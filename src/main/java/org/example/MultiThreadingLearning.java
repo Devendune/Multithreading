@@ -6,5 +6,6 @@ public class MultiThreadingLearning implements Runnable
     public void run()
     {
         System.out.println("Hi  inside Thread");
+
     }
 }
