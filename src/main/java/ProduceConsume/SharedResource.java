@@ -3,7 +3,7 @@ package ProduceConsume;
 public class SharedResource
 {
     boolean itemAvailable=false;
-    public synchronized  void addItem()
+    public synchronized void addItem()
     {
         itemAvailable=true;
         System.out.println("Item added by: "+Thread.currentThread().getName());
@@ -13,13 +13,12 @@ public class SharedResource
     public synchronized void consumeItem()
     {
         System.out.println("ConsumeItem is invoked by: "+Thread.currentThread().getName());
-
         while(!itemAvailable) {
             try {
-                System.out.println("Thread " + Thread.currentThread().getName() + "is waiting now");
+                System.out.println("Thread " + Thread.currentThread().getName() + " is waiting now");
                 wait();
             } catch (Exception e) {
-
+                System.out.println("Exception from sleep is caught buddy");
             }
             //handle exception
         }
